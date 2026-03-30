@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伍点电竞 - 官方网站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6C5CE7',
+                        secondary: '#2D3436',
+                        dark: '#14141C',
+                        darker: '#0C0C14',
+                        accent: '#A29BFE',
+                    },
+                },
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass {
+                background: rgba(255,255,255,0.05);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255,255,255,0.1);
+            }
+            .glow {
+                box-shadow: 0 0 12px rgba(162,155,254,0.4);
+            }
+            .glow-hover:hover {
+                box-shadow: 0 0 16px rgba(162,155,254,0.6);
+                transform: translateY(-2px);
+            }
+        }
+    </style>
+
+    <style>
+        body {
+            background: #0C0C14;
+            font-family: system-ui, sans-serif;
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-btn.active {
+            background: rgba(162, 155, 254, 0.8) !important;
+            color: #0C0C14 !important;
+        }
+    </style>
+</head>
+
+<body class="text-gray-100">
+
+    <!-- 顶部横幅 -->
+    <section class="relative w-full h-[220px] md:h-[280px] overflow-hidden rounded-b-2xl">
+        <div class="absolute inset-0 bg-gradient-to-r from-darker to-dark opacity-90"></div>
+        <div class="absolute inset-0 flex flex-col justify-center px-6 md:px-12">
+            <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-white tracking-tight">伍点电竞</h1>
+            <p class="text-accent mt-1 text-lg md:text-xl">WU DIAN DIAN JING · 专业 · 高效</p>
+        </div>
+    </section>
+
+    <!-- 主体 -->
+    <div class="max-w-6xl mx-auto px-4 py-8 space-y-10">
+
+        <!-- 合作主播 → 头像和文字已放大 -->
+        <div class="glass rounded-2xl p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <h2 class="text-xl md:text-2xl font-semibold">电竞合作主播</h2>
+            <a href="https://v.douyin.com/pmSluCa6Dgo/"
+                class="glass px-6 py-3 rounded-full text-white font-semibold hover:text-accent glow-hover transition-all flex items-center gap-3">
+                <img src="img/yc_img.jpg" alt="翊尘" class="w-10 h-10 rounded-full object-cover">
+                <span class="text-lg">翊尘</span>
+            </a>
+        </div>
+
+        <!-- 游戏分类 -->
+        <div>
+            <h2 class="text-xl md:text-2xl font-semibold mb-6">游戏分类</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <div onclick="openPaodao()"
+                    class="glass rounded-xl p-5 flex flex-col items-center gap-3 glow-hover transition-all cursor-pointer">
+                    <i class="fa fa-gamepad text-xl text-accent"></i>
+                    <span class="text-sm">跑刀</span>
+                </div>
+                <div onclick="openHuhang()"
+                    class="glass rounded-xl p-5 flex flex-col items-center gap-3 glow-hover transition-all cursor-pointer">
+                    <i class="fa fa-rocket text-xl text-accent"></i>
+                    <span class="text-sm">护航</span>
+                </div>
+                <div onclick="openJitui()"
+                    class="glass rounded-xl p-5 flex flex-col items-center gap-3 glow-hover transition-all cursor-pointer">
+                    <i class="fa fa-plus-circle text-xl text-accent"></i>
+                    <span class="text-sm">加鸡腿</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 公告 + 打手应聘 + 购买说明 → 三栏布局 -->
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+            <!-- 公告 -->
+            <div class="glass rounded-2xl p-6 h-full">
+                <h3 class="text-lg font-semibold mb-4 flex items-center">
+                    <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm mr-2">最新</span>公告
+                </h3>
+                <div class="space-y-4 text-sm">
+                    <div class="border-l-2 border-accent/40 pl-3"> · 欢迎关注伍点电竞俱乐部 抖音翊尘自己的俱乐部！拒绝科技，保证纯绿！</div>
+                    <div class="border-l-2 border-accent/40 pl-3"> · 如在跑刀过程中您的游戏账号出现任何问题请直接联系抖音翊尘！售后绝对让您满意！</div>
+                    <div class="border-l-2 border-accent/40 pl-3"> · 请点击下方下单客服按钮后扫码添加客服企业微信下单！</div>
+                    <div class="border-l-2 border-accent/40 pl-3 flex justify-center">
+                        <img src="img/wechat_kf.jpg" alt="客服微信" class="w-40 h-40 rounded-lg object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 打手应聘 -->
+            <div class="glass rounded-2xl p-6 h-full">
+                <h3 class="text-lg font-semibold mb-4 flex items-center">
+                    <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm mr-2">最新</span>打手应聘
+                </h3>
+                <div class="space-y-4 text-sm">
+                    <div class="border-l-2 border-accent/40 pl-3"> · 为确保是纯绿跑手，保护老板的账号安全，需签订法律效应合同。</div>
+                    <div class="border-l-2 border-accent/40 pl-3"> · 进群交押金500元，停止接单7日后退还（合同手续费50元）。</div>
+                    <div class="border-l-2 border-accent/40 pl-3"> · 每单群内公布价格，可自由接单。</div>
+                    <div class="border-l-2 border-accent/40 pl-3"> · 需自备设备，网吧跑刀暂不接受。</div>
+                    <div class="border-l-2 border-accent/40 pl-3"> · 晚上12点–早上8点半单子较多。</div>
+                    <div class="border-l-2 border-accent/40 pl-3"> · 招聘详情咨询翊尘</div>
+                    <div class="border-l-2 border-accent/40 pl-3 font-medium text-accent"> · 翊尘微信：YC257764</div>
+                </div>
+            </div>
+
+            <!-- 购买说明 -->
+            <div class="glass rounded-2xl p-6 h-full">
+                <h3 class="text-lg font-semibold mb-4 flex items-center">
+                    <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm mr-2">购买</span>说明
+                </h3>
+                <div class="space-y-4 text-sm">
+                    <div class="border-l-2 border-accent/40 pl-3">1. 客服不会主动加您，下单前先确认订单。</div>
+                    <div class="border-l-2 border-accent/40 pl-3">2. 超出1小时补币100w，以此类推。</div>
+                    <div class="border-l-2 border-accent/40 pl-3">3. 留红留卡按仓库价格计算。</div>
+                    <div class="border-l-2 border-accent/40 pl-3">4. 使用房卡会补对应哈弗币。</div>
+                    <div class="border-l-2 border-accent/40 pl-3">5. 可提前截图仓库，禁止私自售卖。</div>
+                    <div class="border-l-2 border-accent/40 pl-3">6. 服务、技术问题不接受投诉，以完单为准。</div>
+                    <div class="border-l-2 border-accent/40 pl-3">7. 客服不回复可联系翊尘投诉。</div>
+                    <div class="border-l-2 border-accent/40 pl-3">8. 最终解释权归伍点电竞所有。</div>
+                    <div class="border-l-2 border-accent/40 pl-3 text-accent font-medium">9. 私下联系跑手成功下单奖励388r！</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 跑刀 弹窗 -->
+    <div id="paodaoModal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden">
+        <div class="glass w-full max-w-lg rounded-2xl p-6 mx-4 relative">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold">跑刀套餐</h3>
+                <button onclick="closePaodao()" class="text-xl hover:text-accent">&times;</button>
+            </div>
+
+            <div class="flex gap-2 mb-4">
+                <button onclick="switchTab('jiben')" class="tab-btn active px-4 py-2 rounded-lg bg-accent/20 text-accent transition-all">基本</button>
+                <button onclick="switchTab('tiyan')" class="tab-btn px-4 py-2 rounded-lg bg-accent/20 text-accent transition-all">体验</button>
+            </div>
+
+            <div id="jiben" class="tab-content active space-y-3">
+                <p class="p-2 rounded bg-white/5">• 基础跑刀服务</p>
+                <p class="p-2 rounded bg-white/5"><img src="img/img_1.jpg" alt="" class="w-full rounded" /></p>
+            </div>
+
+            <div id="tiyan" class="tab-content space-y-3">
+                <div class="flex flex-col items-center space-y-4 text-center">
+                    <div class="w-48 h-48 bg-white rounded-xl p-2">
+                        <img src="img/wechat_kf.jpg" alt="企业微信客服" class="w-full h-full object-cover rounded">
+                    </div>
+                    <p class="text-sm text-gray-300">扫描上方二维码添加客服企业微信</p>
+                    <p class="text-accent font-medium">接单·售后·投诉·补单·咨询</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 护航 弹窗 -->
+    <div id="huhangModal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden">
+        <div class="glass w-full max-w-lg rounded-2xl p-6 mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold">护航服务</h3>
+                <button onclick="closeHuhang()" class="text-xl hover:text-accent">&times;</button>
+            </div>
+            <div class="space-y-3">
+                <p class="p-2 rounded bg-white/5">• 正在筹备中 敬请期待</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 加鸡腿 弹窗 -->
+    <div id="jituiModal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden">
+        <div class="glass w-full max-w-lg rounded-2xl p-6 mx-4">
+            <div class="flex justify-between items-center mb-5">
+                <h3 class="text-xl font-bold">联系客服 · 加鸡腿</h3>
+                <button onclick="closeJitui()" class="text-xl hover:text-accent">&times;</button>
+            </div>
+            <div class="flex flex-col items-center space-y-4 text-center">
+                <div class="w-48 h-48 bg-white rounded-xl p-2">
+                    <img src="img/wechat_kf.jpg" alt="企业微信客服" class="w-full h-full object-cover rounded">
+                </div>
+                <p class="text-sm text-gray-300">扫描上方二维码添加客服企业微信</p>
+                <p class="text-accent font-medium">接单·售后·投诉·补单·咨询</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <footer class="mt-12 py-8 bg-darker">
+        <div class="max-w-6xl mx-auto px-4 text-center text-sm text-gray-400">
+            <p class="mb-3">© 2025 伍点电竞 版权所有</p>
+            <div class="flex justify-center gap-5">
+                <i class="fa fa-qq text-lg text-accent"></i>
+                <i class="fa fa-weixin text-lg text-accent"></i>
+                <i class="fa fa-phone text-lg text-accent"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 跑刀弹窗
+        function openPaodao() {
+            document.getElementById('paodaoModal').classList.remove('hidden');
+        }
+        function closePaodao() {
+            document.getElementById('paodaoModal').classList.add('hidden');
+        }
+
+        // 护航弹窗
+        function openHuhang() {
+            document.getElementById('huhangModal').classList.remove('hidden');
+        }
+        function closeHuhang() {
+            document.getElementById('huhangModal').classList.add('hidden');
+        }
+
+        // 加鸡腿弹窗
+        function openJitui() {
+            document.getElementById('jituiModal').classList.remove('hidden');
+        }
+        function closeJitui() {
+            document.getElementById('jituiModal').classList.add('hidden');
+        }
+
+        // 选项卡切换
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // 点击外部关闭弹窗
+        window.onclick = function(event) {
+            const paodao = document.getElementById('paodaoModal');
+            const huhang = document.getElementById('huhangModal');
+            const jitui = document.getElementById('jituiModal');
+            if (event.target == paodao) closePaodao();
+            if (event.target == huhang) closeHuhang();
+            if (event.target == jitui) closeJitui();
+        }
+    </script>
+
+</body>
+</html>
